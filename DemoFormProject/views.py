@@ -108,10 +108,7 @@ def nba():
         title='nba injuries',
         year=datetime.now().year,
         message='nba injuries dataset page.',
-        img1 = '/static/Pics/pic1.jpg',
-        img2 = '/static/Pics/pic1.jpg',
-        img3 = '/static/Pics/pic1.jpg',
-        img4 = '/static/Pics/pic1.jpg',
+        img1 = '/static/Pics/injury1.jpg',
         raw_data_table = raw_data_table,
         form1 = form1,
         form2 = form2

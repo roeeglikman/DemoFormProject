@@ -54,6 +54,10 @@
     <Content Include="DemoFormProject\static\Data\injuries_2010-2020.csv" />
     <Content Include="DemoFormProject\static\Data\users.csv" />
     <Content Include="DemoFormProject\static\Data\capitals.csv" />
+    <Content Include="DemoFormProject\static\Pics\injury1.jpg" />
+    <Content Include="DemoFormProject\static\Pics\injury2.jpeg" />
+    <Content Include="DemoFormProject\static\Pics\injury3.webp" />
+    <Content Include="DemoFormProject\static\Pics\injury4.jpg" />
     <Content Include="DemoFormProject\static\Pics\pic1.jpg" />
     <Content Include="DemoFormProject\templates\nba.html" />
     <Content Include="DemoFormProject\templates\register.html" />
