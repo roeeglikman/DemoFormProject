@@ -62,6 +62,7 @@ def contact():
         'contact.html',
         title='Contact',
         year=datetime.now().year,
+        img_tichonet = '/static/pics/tichonet.png',
         message='Your contact page.'
     )
 
@@ -82,6 +83,7 @@ def data():
         'data.html',
         title='Data',
         year=datetime.now().year,
+        img_tichonet = '/static/pics/tichonet.png',
         message='Your application description page.'
     )
 

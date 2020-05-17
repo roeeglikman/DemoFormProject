@@ -59,6 +59,7 @@
     <Content Include="DemoFormProject\static\Pics\injury3.webp" />
     <Content Include="DemoFormProject\static\Pics\injury4.jpg" />
     <Content Include="DemoFormProject\static\Pics\pic1.jpg" />
+    <Content Include="DemoFormProject\static\Pics\tichonet.png" />
     <Content Include="DemoFormProject\templates\nba.html" />
     <Content Include="DemoFormProject\templates\register.html" />
     <Content Include="DemoFormProject\templates\login.html" />
