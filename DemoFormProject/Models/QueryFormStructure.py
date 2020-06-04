@@ -7,7 +7,7 @@ from datetime import datetime
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms import Form, BooleanField, PasswordField
-from wtforms import TextField, TextAreaField, SelectField, DateField
+from wtforms import TextField, TextAreaField, SelectField, DateField, SelectMultipleField
 from wtforms import validators, ValidationError
 
 from wtforms.validators import DataRequired
@@ -86,3 +86,7 @@ class CollapseForm(FlaskForm):
     name="Collapse" 
     value="Collapse"
 
+class QueryForm(FlaskForm):
+    teams  = SelectMultipleField('Select teams:  ' , validators = [DataRequired()])
+    year   = StringField('Enter the year:  ' , validators = [DataRequired()])
+    submit = SubmitField('Submit')

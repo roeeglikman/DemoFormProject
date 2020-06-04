@@ -1,32 +1,34 @@
-{% extends "layout.html" %}
+﻿﻿{% extends "layout.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
 
 {% block content %}
 
-<h2>{{title}}</h2>
-
-<p>This page will enable the user to input a data field</p>
 
 
-    <form method=post>
-        {{ form.csrf }}
-        <table>
-            <tr>
-                <td class="input text"> {{ form.name.label }} </td>
-                <td>                    {{ form.name }}       </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td class="input submit"> <input type="submit" value="Capital"> </td>
-            </tr>
-        </table>
-    </form>
 
-    <p><h1>injury of {{player}} is : <b>{{injury}}</b></h1></p>
 
-    <h3> Table is </h3>
-    {{ raw_data_table | safe}}
+<div class="row">
 
+    <div class="col-md-4">
+        <form method="post">
+            {{ form1.csrf_token }}
+            {{ wtf.form_field(form1.teams)}}
+            {{ wtf.form_field(form1.year)}}
+            <input class="btn btn-primary" type="submit" value="submit">
+        </form>
+    </div>
+    <div class="col-md-8">
+        <div class="row">
+            <h4>injuries in the nba</h4>
+            <img src={{ chart }} class="img-thumbnail" alt="not found">
+        </div>
+    </div>
+</div>
+
+<hr />
+
+
+
+<hr />
 
     {% endblock %}
-
-

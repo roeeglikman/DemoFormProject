@@ -40,3 +40,8 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
+
+.heb {
+    font-family: Tahoma, Geneva, sans-serif;
+    direction: rtl;
+}
