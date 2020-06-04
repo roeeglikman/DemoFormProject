@@ -126,9 +126,9 @@ def Gallery():
     """Renders the about page."""
     return render_template(
         'Gallery.html',
-        title='My photo album',
+        title='The to 8 NBA players right now',
         year=datetime.now().year,
-        message='Welcome to my photo album'
+        message=''
     )
 
 
