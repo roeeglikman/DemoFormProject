@@ -1,8 +1,6 @@
 
-### ----------------------------------------------------------- ###
-### --- include all software packages and libraries needed ---- ###
-### ----------------------------------------------------------- ###
-from datetime import datetime
+##-----Imports-----##
+##--imports all the ibraries for the forms---##from datetime import datetime
 
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
@@ -15,15 +13,6 @@ from wtforms.validators import DataRequired
 
 
 
-
-## This class have the fields that are part of the Country-Capital demonstration
-## You can see two fields:
-##   the 'name' field - will be used to get the country name
-##   the 'submit' button - the button the user will press to have the 
-##                         form be "posted" (sent to the server for process)
-class QueryFormStructure(FlaskForm):
-    name   = StringField('Country Name:  ' , validators = [DataRequired()])
-    submit = SubmitField('Submit')
 
 
 
@@ -76,17 +65,33 @@ class UserRegistrationFormStructure(FlaskForm):
 #    
 #    submit = SubmitField('Submit')
 
+
+##------------Expand buttom---------##
+## builts the buttom that allows the user to open the table of the dataset 
 class ExpandForm(FlaskForm):
     submit1 = SubmitField('Expand')
     name="Expand" 
     value="Expand"
+    ### ----------------------------------------------------------- ###
 
+
+    ##------------Collapse buttom---------##
+## builts the buttom that allows the user to close the table of the dataset
 class CollapseForm(FlaskForm):
     submit2 = SubmitField('Collapse')
     name="Collapse" 
     value="Collapse"
+    ### ----------------------------------------------------------- ###
 
+    ##----------------------------QueryFormStructure------------------------##
+## This class have the fields that are part of the nba-salary demonstration
+## You can see two fields:
+##   the 'teams' field - will be used to get the teams in order to make a graph that presents injuries for the teams that the user chose.
+##   the 'year' field - the user will see a graph that present the injurie in the year and the teams that he choes.
+##   the 'submit' button - the button the user will press to have the 
+##                         form be "posted" (sent to the server for process)
 class QueryForm(FlaskForm):
     teams  = SelectMultipleField('Select teams:  ' , validators = [DataRequired()])
     year   = StringField('Enter the year:  ' , validators = [DataRequired()])
     submit = SubmitField('Submit')
+    ### ----------------------------------------------------------- ###

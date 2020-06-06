@@ -1,6 +1,9 @@
 """
 Routes and views for the flask application.
 """
+##-------------------------Imports-----------------------##
+##-------imports all the ibraries for the views.py--------#
+### --------------------------------------------------- ###
 
 from datetime import datetime
 from flask import render_template
@@ -140,32 +143,41 @@ def query():
 
    
     df = pd.read_csv(path.join(path.dirname(__file__), 'static/Data/injuries_2010-2020.csv'))
+    # קורא את קובץ ה-csv
     l=df['Team']
+    # מאפשרת למשתמש לבחור שחקנים מן הרשימה בקטגוריה
     s=set(l)
+    # ממיינת את הרשימה לפי סדר a-z
     s1=set()
+    # מגדיר רשימה חדשה
     for item in s:
         if item==item:
             s1.add(item)
     l1=list(s1)
+    # הרשימה החדשה היא כמו הרשימה הרגילה של הקבוצת רק בלי ה-nan
     teams=list(zip(l1,l1))
+    # מחזירה את רשימת השחקנים עם אפשרות לבחירת שחקנים ללא הגבלה של המשתמש
     form1.teams.choices = teams
 
 
 
     if request.method == 'POST':
         teamlist = form1.teams.data
+        # יוצר משתנה חדש
         year = form1.year.data
+        # יוצר משתנה חדש
         df=df[df.Team.isin(teamlist)]
         df['Date']=df['Date'].astype(str)
         df=df[df['Date'].str.contains(year)]
         df=df.drop(['Notes', 'Relinquished'],1)
+        # מוריד את שתי העמודות הלא חשובות
         df=df.groupby('Team').size().to_frame()
         fig = plt.figure()
         ax = fig.add_subplot(111)
         fig.subplots_adjust(bottom=0.4)
         df.plot(kind='bar',ax=ax)
         chart = plot_to_img(fig)
-
+        # מחזיר למשתמש את הגרף
     
     return render_template(
         'query.html',
@@ -189,6 +201,8 @@ def Register():
             # Here you should put what to do (or were to go) if registration was good
         else:
             flash('Error: User with this Username already exist ! - '+ form.username.data)
+            # אם אחד הפרטים שהזין המשתמש כבר קיים במערכת, האתר יציג הודעה בה רשום: "שגיאה: שם משתמש זה כבר קיים במערכת"
+
             form = UserRegistrationFormStructure(request.form)
 
     return render_template(
@@ -213,7 +227,9 @@ def Login():
             return redirect('Query')
         else:
             flash('Error in - Username and/or password')
-   
+   # אם שם המשתמש והסיסמה שהכניס המשתמש תואמים ונכונים, האתר יאשר זאת ויעביר אותו ישירות לעמוד ה-query
+   # אם לא, האתר יחזיר הודעת שגיאה בה כתוב שם משתמש/ סיסמה אינם 
+
     return render_template(
         'login.html', 
         form=form, 
@@ -221,6 +237,10 @@ def Login():
         year=datetime.now().year,
         repository_name='Pandas',
         )
+
+# -------------------------------------------------------
+# Turns the graph into a picture
+# -------------------------------------------------------
 
 def plot_to_img(fig):
     pngImage = io.BytesIO()
